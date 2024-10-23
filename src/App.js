@@ -1,23 +1,17 @@
-import logo from './logo.svg';
 import './App.css';
-
+// import Greeting from './components/functionalComponents/Greeting';
+// import Counter from './components/statefulFunctionalComponent/Counter';
+// import Welcomemessage from './components/conditionalRendering/WelcomeMessage';
+import ContactForm from './handlingForms/ContactForm';
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      {/* <Greeting name="John" /> */}
+      {/* <Greeting name="Jane" />
+      <Greeting number= {30} /> */}
+      {/* <Counter /> */}
+      {/* <Welcomemessage isLoggedIn={false}/>  */}
+      <ContactForm />
     </div>
   );
 }
