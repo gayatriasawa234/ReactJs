@@ -1,60 +1,53 @@
 import React, { useState } from 'react';
 
 function LoginForm() {
-  // State to hold form input values
-  const [formData, setFormData] = useState({
-    username: '',
-    password: ''
-  });
+  const [formData, setFormData] = useState({ username: '', password: '' });
+  const [errors, setErrors] = useState({});
 
-  // Handle changes to input fields
   const handleChange = (event) => {
     const { name, value } = event.target;
-    console.log(name);
-    console.log(value);
-    setFormData({
-      ...formData,
-      [name]: value
-    });
-    console.log(formData);
+
+    setFormData({ ...formData, [name]: value });
   };
 
-
-
-
-  // Handle form submission
   const handleSubmit = (event) => {
-    event.preventDefault(); // Prevent page reload
-    console.log('Submitted data:', formData);
+
+    event.preventDefault();
+    const newErrors = {};
+    if (!formData.username) newErrors.username = 'Username is required';
+    if (!formData.password) newErrors.password = 'Password is required';
+    console.log(formData)
+    setErrors(newErrors);
+    if (Object.keys(newErrors).length === 0) {
+      console.log('Form submitted successfully', formData);
+    }
   };
+  console.log(errors);
 
   return (
-    <div>
-      <h2>Login</h2>
-      <form onSubmit={handleSubmit}>
-        <label>
-          Username:
-          <input
-            type="text"
-            name="username"
-            value={formData.username}
-            onChange={handleChange}
-          />
-        </label>
-        <br />
-        <label>
-          Password:
-          <input
-            type="password"
-            name="password"
-            value={formData.password}
-            onChange={handleChange}
-          />
-        </label>
-        <br />
-        <button type="submit">Submit</button>
-      </form>
-    </div>
+    <form onSubmit={handleSubmit}>
+      <div>
+        <label>Username:</label>
+        <input
+          type="text"
+          name="username"
+          value={formData.username}
+          onChange={handleChange}
+        />
+        {errors.username && <span style={{ color: 'red' }}>{errors.username}</span>}
+      </div>
+      <div>
+        <label>Password:</label>
+        <input
+          type="password"
+          name="password"
+          value={formData.password}
+          onChange={handleChange}
+        />
+        {errors.password && <span style={{ color: 'red' }}>{errors.password}</span>}
+      </div>
+      <button type="submit">Submit</button>
+    </form>
   );
 }
 
