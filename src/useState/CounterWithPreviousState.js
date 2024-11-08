@@ -3,14 +3,16 @@ import React, { useState, useEffect } from 'react';
 const CounterWithPreviousState = () => {
     const [count, setCount] = useState(0);
     const [prevCount, setPrevCount] = useState(null);
-
+  
     const increment = () => {
-        setPrevCount(count);        // Store current count as previous before updating
+        setPrevCount(count);     
+        console.log(count)   // Store current count as previous before updating
         setCount(count + 1);
     };
 
     const decrement = () => {
-        setPrevCount(count);      // Store current count as previous before updating
+        setPrevCount(count);  
+        console.log(count)    // Store current count as previous before updating
         setCount(count - 1);
     };
 

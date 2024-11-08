@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import { AuthContext } from './AuthContext';
 const HomePage = () => {
-    const { isAuthenticated, count, Increment} = useContext(AuthContext)
+    const { isAuthenticated, count, Increment, Decrement} = useContext(AuthContext)
     console.log(useContext(AuthContext));
     return (
         <div style={{ padding: '20px' }}>
@@ -13,9 +13,10 @@ const HomePage = () => {
             )}
             <h2>Count: {count}</h2>
             <button onClick={Increment}>Increment</button>
+            <button onClick={Decrement}>Decrement</button>
         </div>
     );
-};
+};      
 
 export default HomePage;
 

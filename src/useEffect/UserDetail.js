@@ -12,14 +12,12 @@ const UserDetail = ({ userId }) => {
         setUser(result);
         setLoading(false);
     }
-
-
     useEffect(() => {
         console.log(userId);
-        if (!userId) return; // Exit if no userId is provided
+        if (!userId) return; // Exit if no userId is provided  
 
-        fetchUser();
-    }, [userId]); // Dependency on userId, re-fetches on userId change
+        fetchUser();  //
+    }, [userId]); // Dependency on userId, re-fetches on userId change 
 
     if (loading) return <p>Loading...</p>;
     return (

@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useId, useState } from 'react';
 import BasicEffect from './useEffect/BasicEffect';
 import EffectWithDeps from './useEffect/EffectWithDeps';
 import RunOnce from './useEffect/RunOnce';
@@ -19,15 +19,16 @@ import AuthProvider from './useContext/AuthContext';
 import { AuthContext } from './useContext/AuthContext';
 import LanguageProvider from './useContext/LanguageContext';
 import Greeting from './useContext/Greeting';
-import ThemeProvider  from './useContext/ThemeContext';
+import ThemeProvider from './useContext/ThemeContext';
 import ThemedButton from './useContext/ThemedButton';
+
 function App() {
   // const [UserId, setUserId] = useState(1);
 
   // const [isAuthenticated, setIsAuthenticated] = (false);
   return (
     <div>
-      {/* <Counter/> */}
+      {/* <Counter /> */}
       {/* <ToggleText/> */}
       {/* <FormExample/> */}
       {/* <UserProfile/> */}
@@ -37,15 +38,21 @@ function App() {
       {/* <EffectWithDeps/> */}
       {/* <UserPosts/> */}
 
-      {/* <UserDetail userId={12}/> */}
+      {/* <UserDetail userId={9} /> */}
       {/* <div>
       <h1>{UserId}</h1>
       <button onClick={() => setUserId(UserId + 1)}>Increment UserId</button>
     </div>
-    <UserDetail userId={UserId}/> */}
+      <UserDetail userId={UserId}/>  */}
       {/* <ThemeContext.Provider>
+      
+        <ThemedButton />
         <ThemedComponent />
       </ThemeContext.Provider> */}
+      <ThemeProvider>
+        <ThemedComponent />
+        <ThemedButton />
+      </ThemeProvider>
       {/* <Counter1/> */}
       {/* <CounterWithPreviousState/> */}
       {/* <AuthProvider>
@@ -54,7 +61,7 @@ function App() {
 
         </HomePage>
         <Navbar>
-          
+
         </Navbar>
       </AuthProvider> */}
       {/* <LanguageProvider>
@@ -62,9 +69,7 @@ function App() {
           
         </Greeting>
       </LanguageProvider> */}
-      <ThemeProvider>
-        <ThemedButton />
-      </ThemeProvider>
+    
 
     </div>
   );

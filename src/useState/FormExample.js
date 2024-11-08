@@ -6,7 +6,7 @@ const FormExample = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        // console.log(Name: ${ name }, Email: ${ email });
+        // console.log(`name: ${ name }`, `email: ${ email }`);
         setName('');
         setEmail('');
     };
